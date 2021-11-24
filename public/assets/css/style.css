@@ -1,0 +1,16 @@
+:root {
+    --primary: #aaaaab;
+    --secondary: #91d9cb;
+    --tertiary: #f3ae98;
+    --quaternary: #f2eea4;
+    --border-radius: 0.3rem;
+    --spacing-one: calc(1rem * 0.25);
+    --spacing-two: calc(1rem * 0.5);
+    --spacing-three: 1rem;
+    --spacing-four: calc(1rem * 1.5);
+    --spacing-five: calc(1rem * 3);
+}
+
+body {
+    background-color: var(--tertiary);
+}
