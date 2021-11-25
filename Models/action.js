@@ -1,12 +1,12 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// create our parent model
-class parent extends Model {
+// create our action model
+class action extends Model {
 }
 
-// create fields/columns for parent model
-parent.init(
+// create fields/columns for action model
+action.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -14,25 +14,18 @@ parent.init(
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
+        action: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [6]
-            },
         },
     },
     {
         sequelize,
-        timestamps:true,
+        timestamps:false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'parent'
-    }
+        modelName: 'action'
+    },
 );
 
-module.exports = parent;
+module.exports = action;
