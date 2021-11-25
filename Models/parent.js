@@ -2,11 +2,11 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // create our parent model
-class parent extends Model {
+class Parent extends Model {
 }
 
-// create fields/columns for parent model
-parent.init(
+// create fields/columns for Parent model
+Parent.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -31,8 +31,8 @@ parent.init(
         timestamps:true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'parent'
+        modelName: 'Parent'
     }
 );
 
-module.exports = parent;
+module.exports = Parent;

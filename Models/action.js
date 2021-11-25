@@ -2,11 +2,11 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // create our action model
-class action extends Model {
+class Action extends Model {
 }
 
 // create fields/columns for action model
-action.init(
+Action.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -24,8 +24,8 @@ action.init(
         timestamps:false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'action'
+        modelName: 'Action'
     },
 );
 
-module.exports = action;
+module.exports = Action;

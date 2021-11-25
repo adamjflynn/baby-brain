@@ -2,11 +2,11 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // create our event model
-class event extends Model {
+class Event extends Model {
 }
 
 // create fields/columns for event model
-event.init(
+Event.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -17,14 +17,14 @@ event.init(
         action_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'action',
+                model: 'Action',
                 key: 'id'
             },
         },
         baby_id: {
                 type: DataTypes.INTEGER,
                 references: {
-                    model: 'baby',
+                    model: 'Baby',
                     key: 'id'
                 }
             },
@@ -39,8 +39,8 @@ event.init(
         timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'event'
+        modelName: 'Event'
     }
 );
 
-module.exports = event;
+module.exports = Event;
