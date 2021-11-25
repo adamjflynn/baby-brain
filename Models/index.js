@@ -4,40 +4,28 @@ const Parent = require('./parent');
 const Event = require('./event');
 
 // create associations
-Baby.hasMany(, {
-    foreignKey: 'user_id'
+Parent.hasMany(Baby, {
+    foreignKey: 'parent_id'
   });
 
-  Post.belongsTo(User, {
-    foreignKey: 'user_id',
+  Baby.hasMany(Event, {
+    foreignKey: 'baby_id'
   });
 
-  User.belongsToMany(Post, {
-    through: Vote,
-    as: 'voted_posts',
-    foreignKey: 'user_id'
-  });
-  
-  Post.belongsToMany(User, {
-    through: Vote,
-    as: 'voted_posts',
-    foreignKey: 'post_id'
+  Action.hasMany(Event, {
+    foreignKey: 'action_id'
   });
 
-  Vote.belongsTo(User, {
-    foreignKey: 'user_id'
+  Baby.belongsTo(Parent, {
+    foreignKey: 'parent_id'
   });
-  
-  Vote.belongsTo(Post, {
-    foreignKey: 'post_id'
+
+  Event.belongsTo(Baby, {
+    foreignKey: 'baby_id'
   });
-  
-  User.hasMany(Vote, {
-    foreignKey: 'user_id'
-  });
-  
-  Post.hasMany(Vote, {
-    foreignKey: 'post_id'
+
+  Event.belongsTo(Action, {
+    foreignKey: 'action_id'
   });
 
   module.exports = { Baby, Parent, Action, Event};
