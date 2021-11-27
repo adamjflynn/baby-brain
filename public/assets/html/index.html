@@ -5,10 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
     <title>BABY BRAIN</title>
 </head>
 
+
 <body>
-    
-</body>
+    <header >
+        <div class="pt-8 flex-row justify-space-between align-center container-fluid mx-auto text-gray-">
+            <div class="flex-shrink-0 flex items-center">
+                <span class="m-auto text-5xl text-gray-100 font-medium"><i class="fas fa-baby px-2" aria-hidden="true"></i>Baby Brain</span>
+            </div>
+      </header>
+    <div class="min-h-screen text-gray-800 flex flex-col justify-center"> 
+        <div class="relative px-4 sm:max-w-xl sm:mx-auto text-center">
+        <span class="text-2xl">Login to your account</span>
+            <div class="mt-4 bg-gray-200 shadow-md rounded-lg">
+                <div class="h-2 bg-red-400 rounded-t-md"></div>
+                <div class="px-8 py-6">
+                    <label class="block font-semibold text-left">Username or email</label>
+                    <input type="text" placeholder="Username" class="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-indigo-400 rounded-md">
+                    <label class="block font-semibold text-left">Password</label>
+                    <input type="password" placeholder="Password" class="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-indigo-400 rounded-md">
+                    <div class="flex justify-between item-baseline">
+                        <button type="submit" class="mt-4 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>       
 </html>
