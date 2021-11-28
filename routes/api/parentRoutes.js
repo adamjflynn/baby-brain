@@ -53,7 +53,6 @@ router.post('/', (req, res) => {
  
   Parent.create({
     username: req.body.username,
-    email: req.body.email,
     password: req.body.password
   })
     .then(dbParentData => res.json(dbParentData))
@@ -67,11 +66,11 @@ router.post('/login', (req, res) => {
   
   Parent.findOne({
     where: {
-      email: req.body.email
+      username: req.body.username
     }
   }).then(dbParentData => {
     if (!dbParentData) {
-      res.status(400).json({ message: 'Email address not found' });
+      res.status(400).json({ message: 'Username not found' });
       return;
     }
 

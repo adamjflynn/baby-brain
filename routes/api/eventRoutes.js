@@ -1,6 +1,4 @@
 router.get('/', (req, res) => {
-    // find all products
-    // be sure to include its associated Category and Tag data
     Event.findAll({
       include: [
         {
