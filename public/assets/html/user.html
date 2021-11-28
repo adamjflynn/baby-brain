@@ -19,12 +19,119 @@
                 <span class="m-auto text-5xl text-red-400 font-medium"><i class="fas fa-baby px-2" aria-hidden="true"></i>Baby Brain</span>
             </div>
       </header>
+
     <div class="min-h-screen text-gray-800 flex flex-col justify-center"> 
       <!-- page content goes here -->
-            
+        <!-- establish 2 colums -->
+        <div class="grid grid-cols-3 gap-3 mt-8">
+
+            <!-- first column, all events -->
+            <div class="col-span-2 mx-8">
+            <div class="h-100 text-gray-800 flex flex-col sm:mx-auto text-center">
+                <span class="text-2xl">Childhood events</span>
+                <div class="h-screen mt-4 bg-gray-300 shadow-md rounded-lg">
+                    <div class="h-2 bg-red-400 rounded-t-md"></div>
+                    <div class="px-8 py-6">
+                        <div class="flex justify-around item-baseline">
+                        </div>
+                    </div>
                 </div>
             </div>
+            </div>
+
+            <!-- second column -->
+            <div class="col-span-1" >
+
+                <!-- Filter events -->
+                <div class="h-auto text-gray-800 flex flex-col sm:mx-auto text-center"> 
+                    <span class="text-2xl">Filter events</span>
+                    <div class="mt-4 mb-4 bg-gray-300 shadow-md rounded-lg">
+                        <div class="h-2 bg-red-400 rounded-t-md"></div>
+                        <div class="px-8 py-6">
+                        <!-- Filter by child       -->
+                            <div class="inline-flex">
+                            <label class="block font-semibold text-left mr-4 mt-4">Filter by child</label> 
+                            <select placeholder="Child name" 
+                                class="form-select w-96 h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md" 
+                                name="filterChild" id="filterChild"
+                                 >
+                                    <!-- This picklist will be populated by selecting children from logged in user -->
+                            </select>
+                        </div>
+
+                        <!-- filter by event -->
+                        <div class="inline-flex">
+                            <label class="block font-semibold text-left mr-4 mt-4">Filter by event type</label> 
+                            <select placeholder="Event Type"
+                                class="form-select w-96 h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md" 
+                                name="filterEvent" id="filterEvent"
+                             >
+                               <!-- This picklist will be populated by the actions table -->
+                            </select>
+                        </div>
+
+                            <div class="flex justify-around item-baseline">
+                                <button type="submit" class="mt-4 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Filter Events</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!--    Add a Child -->
+                <div class="h-auto text-gray-800 flex flex-col sm:mx-auto text-center"> 
+                     <span class="text-2xl">Add a child</span>
+                            <div class="my-4 bg-gray-300 shadow-md rounded-lg">
+                            <div class="h-2 bg-red-400 rounded-t-md"></div>
+                            <div class="px-8 py-6">
+
+                            <div class="inline-flex">
+                                <label class="block font-semibold text-left mr-4 mt-4">Child's Name</label>
+                                <input type="text" placeholder="Child's Name" class="border w-96 h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md">  
+                            </div>
+</div>
+                                <div class="flex justify-around item-baseline">
+                                    <button type="submit" class="mt-4 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Add Child</button>
+                                </div>
+                            </div>
+                        
+                        
+                </div>
+                                   
+                    
+                <!-- Add an event -->
+                <div class="h-auto text-gray-800 flex flex-col sm:mx-auto text-center"> 
+                        <span class="text-2xl">Add an event</span>
+                        <div class="mt-4 bg-gray-300 shadow-md rounded-lg">
+                            <div class="h-2 bg-red-400 rounded-t-md"></div>
+                            <div class="px-8 py-6">
+
+                                <div class="inline-flex">
+                                <label class="mt-4 block font-semibold text-left mr-4">Select event type</label> 
+                                <select placeholder="Event Type"
+                                    class="form-select w-96 h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md" 
+                                    name="filterEvent" id="filterEvent"
+                                 >
+                                   <!-- This picklist will be populated by the actions table -->
+                                </select>
+                                </div>
+
+                                
+                                <div class="px-8 py-6">
+                                    <div class="inline-flex">
+                                    <label class="block font-semibold text-left mr-4">Event Notes</label>
+                                    <input type="textarea" placeholder="Event Notes" class="border w-96 h-20 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md">  
+                                    </div>
+                               <div class="flex justify-around item-baseline">
+                                <button type="submit" class="mt-4 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Add Event</button>
+                            </div>
+            
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
         </div>
-        </div>
-    </body>       
-</html>
+    </div>
+     
+</body>
+
