@@ -1,11 +1,13 @@
 const router = require('express').Router();
 const { Event, Baby } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 
 
 
 router.get('/', (req, res) => {
     Event.findAll({
+      attributes: ['id', 'baby_id', 'note', 'created_at'],
       include: [
         {
           model: Baby,
@@ -14,7 +16,7 @@ router.get('/', (req, res) => {
         }
       ]   
     })
-    .then(dbEventData => res.json(dbEventData))
+    .then(dbeventData => res.json(dbeventData))
     .catch(err => {
       console.log(err)
       res.status(500).json(err)
@@ -23,6 +25,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   Event.findOne({
+    attributes: ['id', 'baby_id', 'note', 'created_at'],
     include: [
       {
         model: Baby,

@@ -31,7 +31,7 @@ router.get('/:id', (req, res) => {
             id: req.params.id
         }
     })
-        .then(dbBabyData => {
+        .then(dbbabyData => {
             if (!dbBabyData) {
                 res.status(404).json({ message: 'No Matches' });
                 return;

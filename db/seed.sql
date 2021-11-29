@@ -1,4 +1,4 @@
-INSERT INTO Action (action)
+/*INSERT INTO Action (action)
 VALUES
 ('Diaper'),
 ('Feeding'),
@@ -39,6 +39,6 @@ VALUES
     (4,6,'38in tall'),
     (1,7,'35min'),
     (3,7,'6hrs');
-
+*/
 
   
