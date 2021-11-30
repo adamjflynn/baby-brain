@@ -1,4 +1,4 @@
-function loginFormHandler(event) {
+async function loginFormHandler(event) {
   //   event.preventDefault();
   
   //   const username = document.querySelector('.username').value.trim();
@@ -23,7 +23,7 @@ function loginFormHandler(event) {
   console.log("test");
    }
   
-  function signupFormHandler(event) {
+  async function signupFormHandler(event) {
    // event.preventDefault();
   
     // const username = document.querySelector('.username').value.trim();
