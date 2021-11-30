@@ -25,18 +25,20 @@
             <div class="mt-4 bg-gray-300 shadow-md rounded-lg">
                 <div class="h-2 bg-red-400 rounded-t-md"></div>
                 <div class="px-8 py-6">
+                  <form>
                     <label class="block font-semibold text-left">Email</label>
-                    <input type="text" placeholder="Email" class="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md">
+                    <input type="text" placeholder="Username" class="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md username">
                     <label class="block font-semibold text-left">Password</label>
-                    <input type="password" placeholder="Password" class="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md">
+                    <input type="password" placeholder="Password" class="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md password">
                     <div class="flex justify-around item-baseline">
-                        <button type="submit" class="mt-4 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Login</button>
-                        <button type="submit" class="mt-4 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Create Account</button>
+                        <button type="button" id="login" class="mt-4 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Login</button>
+                        <button type="button" id="create" class="mt-4 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Create Account</button>
                     </div>
-
+                </form>
                 </div>
             </div>
         </div>
         </div>
-    </body>       
+    </body>    
+    <script src="../javascript/login.js"></script>
 </html>
