@@ -1,4 +1,5 @@
-const { Parent } = require('../models');
+
+const {Parent} = require('../models')
 
 const parentData = [
   {
@@ -20,7 +21,8 @@ const parentData = [
 
 ]
 
-const seedParents = () => {
-  Parent.bulkCreate(parentData)
-}
+const seedParents = () => Parent.bulkCreate(parentData)
+
+
+
 module.exports = seedParents

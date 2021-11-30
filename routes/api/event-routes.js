@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Event, Baby } = require('../../models');
-const withAuth = require('../../utils/auth');
+
 
 
 
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
         }
       ]   
     })
-    .then(dbeventData => res.json(dbeventData))
+    .then(dbEventData => res.json(dbEventData))
     .catch(err => {
       console.log(err)
       res.status(500).json(err)
@@ -60,3 +60,5 @@ router.post('/', (req, res) => {
       });
 });
 
+
+module.exports = router;

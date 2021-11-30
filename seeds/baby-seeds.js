@@ -12,10 +12,15 @@ const babyData = [
   {
     baby_name: 'hunter',
     parent_id: 3
+  },
+  {
+    baby_name: 'logan',
+    parent_id: 4
+ 
   }
 ]
 
-const seedBabies = () => {
-  Baby.bulkCreate(babyData)
-}
+const seedBabies = () => Baby.bulkCreate(babyData)
+
+
 module.exports = seedBabies

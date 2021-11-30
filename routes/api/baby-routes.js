@@ -7,6 +7,10 @@ router.get('/', (req, res) => {
     Baby.findAll({
         include: [
             {
+                model: Parent,
+                attributes: ['username']
+            },
+            {
                 model: Event,
                 attributes: ['note']
             }
@@ -22,6 +26,10 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     Baby.findOne({
         include: [
+            {
+                model: Parent,
+                attributes: ['username']
+            },
             {
                 model: Event,
                 attributes: ['note']
@@ -54,4 +62,7 @@ router.post('/', (req, res) => {
             res.status(500).json(err);
         });
 });
+
+
+module.exports = router;
 

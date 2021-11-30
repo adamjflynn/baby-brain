@@ -13,12 +13,11 @@ const eventData = [
   },
   {
     action_id: 3,
-    baby_id: 13,
+    baby_id: 3,
     note: 'cbehcehcehhebhecbhechebc'
   }
 ]
 
-const seedEvents = () => {
-  Event.bulkCreate(eventData)
-}
+const seedEvents = () => Event.bulkCreate(eventData)
+
 module.exports = seedEvents

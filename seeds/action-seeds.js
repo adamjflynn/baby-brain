@@ -19,7 +19,6 @@ const actionData = [
 
 ]
 
-const seedActions = () => {
-  Action.bulkCreate(actionData)
-}
+const seedActions = () => Action.bulkCreate(actionData)
+
 module.exports = seedActions
