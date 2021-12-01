@@ -20,7 +20,7 @@ async function loginFormHandler(event) {
       alert(response.statusText);
     }
   }
-  console.log("test");
+  console.log("test1122221");
 }
 
 async function signupFormHandler(event) {
@@ -30,7 +30,7 @@ async function signupFormHandler(event) {
   const password = document.querySelector('.password').value.trim();
 
   if (username && password) {
-    const response = await fetch('/api/user', {
+    const response = await fetch('/api/parents', {
       method: 'post',
       body: JSON.stringify({
         username,
