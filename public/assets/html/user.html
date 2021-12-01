@@ -79,21 +79,22 @@
             
                 <!--    Add a Child -->
                 <div class="h-auto text-gray-800 flex flex-col sm:mx-auto text-center"> 
-                     <span class="text-2xl">Add a child</span>
-                            <div class="my-4 bg-gray-300 shadow-md rounded-lg">
-                            <div class="h-2 bg-red-400 rounded-t-md"></div>
-                            <div class="px-8 py-6">
-
+                    <span class="text-2xl">Add a child</span>
+                    <div class="my-4 bg-gray-300 shadow-md rounded-lg">
+                        <div class="h-2 bg-red-400 rounded-t-md"></div>
+                        <div class="px-8 py-6">
+                    
                             <div class="inline-flex">
                                 <label class="block font-semibold text-left mr-4 mt-4">Child's Name</label>
-                                <input type="text" placeholder="Child's Name" class="border w-96 h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md">  
+                                <input type="text" placeholder="Child's Name"
+                                    class="border w-96 h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md">
                             </div>
-</div>
-                                <div class="flex justify-around item-baseline">
-                                    <button type="submit" class="mt-4 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Add Child</button>
-                                </div>
-                            </div>
-                        
+                        </div>
+                        <div class="flex justify-around item-baseline">
+                            <button type="submit" class="my-4 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Add
+                                Child</button>
+                        </div>
+                    </div>
                         
                 </div>
                                    
@@ -103,7 +104,17 @@
                         <span class="text-2xl">Add an event</span>
                         <div class="mt-4 bg-gray-300 shadow-md rounded-lg">
                             <div class="h-2 bg-red-400 rounded-t-md"></div>
-                            <div class="px-8 py-6">
+                            <div >
+
+                                <div class="inline-flex">
+                                    <label class="block font-semibold text-left mr-4 mt-4">Select child</label> 
+                                    <select placeholder="Child name" 
+                                        class="form-select w-96 h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md" 
+                                        name="filterChild" id="filterChild"
+                                         >
+                                            <!-- This picklist will be populated by selecting children from logged in user -->
+                                    </select>
+                                </div>
 
                                 <div class="inline-flex">
                                 <label class="mt-4 block font-semibold text-left mr-4">Select event type</label> 
@@ -116,12 +127,13 @@
                                 </div>
 
                                 
-                                <div class="px-8 py-6">
+                                <div class="px-8 py-4">
                                     <div class="inline-flex">
                                     <label class="block font-semibold text-left mr-4">Event Notes</label>
                                     <input type="textarea" placeholder="Event Notes" class="border w-96 h-20 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md">  
                                     </div>
                                <div class="flex justify-around item-baseline">
+
                                 <button type="submit" class="mt-4 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Add Event</button>
                             </div>
             
@@ -134,4 +146,5 @@
     </div>
      
 </body>
+
 
