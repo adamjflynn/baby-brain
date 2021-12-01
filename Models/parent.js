@@ -4,8 +4,14 @@ const argon2 = require('argon2');
 
 // create our parent model
 class Parent extends Model {
-    checkPassword(loginPw) {
-        return argon2.verify(loginPw, this.password);
+    async checkPassword(loginPw) {
+        try {
+            let correctPassword = await argon2.verify(this.password, loginPw)
+            return correctPassword
+        } catch (err) {
+            console.log(err);
+            throw e;
+        }
     }
 }
 
@@ -33,23 +39,23 @@ Parent.init(
     {
         hooks: {
             async beforeCreate(newUserData) {
-              newUserData.password = await argon2.hash(newUserData.password, {
-                  type:argon2.argon2id,
-                  hashLength: 32
+                newUserData.password = await argon2.hash(newUserData.password, {
+                    type: argon2.argon2id,
+                    hashLength: 32
 
-              });
-              return newUserData;
+                });
+                return newUserData;
             },
             async beforeUpdate(updatedUserData) {
-              updatedUserData.password = await argon2.hash(updatedUserData.password, {
-                type:argon2.argon2id,
-                hashLength: 32
-              });
-              return updatedUserData;
+                updatedUserData.password = await argon2.hash(updatedUserData.password, {
+                    type: argon2.argon2id,
+                    hashLength: 32
+                });
+                return updatedUserData;
             }
         },
         sequelize,
-        timestamps:true,
+        timestamps: true,
         freezeTableName: true,
         underscored: true,
         modelName: 'Parent'

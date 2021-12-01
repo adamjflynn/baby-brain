@@ -1,9 +1,10 @@
 const router = require('express').Router();
 const { Baby, Parent, Event } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 
 
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Baby.findAll({
         include: [
             {
@@ -23,7 +24,7 @@ router.get('/', (req, res) => {
         });
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
     Baby.findOne({
         include: [
             {
@@ -39,7 +40,7 @@ router.get('/:id', (req, res) => {
             id: req.params.id
         }
     })
-        .then(dbbabyData => {
+        .then(dbBabyData => {
             if (!dbBabyData) {
                 res.status(404).json({ message: 'No Matches' });
                 return;
@@ -52,7 +53,7 @@ router.get('/:id', (req, res) => {
         });
 });
 
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Baby.create({
         baby_name: req.body.baby_name,
         parent_id: req.body.parent_id
@@ -64,7 +65,7 @@ router.post('/', (req, res) => {
         });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Baby.destroy({
       where: {
         id: req.params.id
