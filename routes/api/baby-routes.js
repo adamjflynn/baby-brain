@@ -7,6 +7,10 @@ router.get('/', (req, res) => {
     Baby.findAll({
         include: [
             {
+                model: Parent,
+                attributes: ['username']
+            },
+            {
                 model: Event,
                 attributes: ['note']
             }
@@ -23,6 +27,10 @@ router.get('/:id', (req, res) => {
     Baby.findOne({
         include: [
             {
+                model: Parent,
+                attributes: ['username']
+            },
+            {
                 model: Event,
                 attributes: ['note']
             }
@@ -31,7 +39,7 @@ router.get('/:id', (req, res) => {
             id: req.params.id
         }
     })
-        .then(dbBabyData => {
+        .then(dbbabyData => {
             if (!dbBabyData) {
                 res.status(404).json({ message: 'No Matches' });
                 return;
@@ -54,4 +62,7 @@ router.post('/', (req, res) => {
             res.status(500).json(err);
         });
 });
+
+
+module.exports = router;
 

@@ -4,6 +4,7 @@ const { Parent, Baby } = require('../../models');
 
 
 
+
 router.get('/', (req, res) => {
   
   Parent.findAll({
@@ -85,3 +86,4 @@ router.post('/login', (req, res) => {
   });
 });
 
+module.exports = router;
