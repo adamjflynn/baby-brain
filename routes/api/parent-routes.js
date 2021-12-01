@@ -86,4 +86,43 @@ router.post('/login', (req, res) => {
   });
 });
 
+router.put('/:id', (req, res) => {
+Parent.update(req.body, {
+  individualHooks: true,
+  where: {
+    id: req.params.id
+  }
+})
+  .then(dbParentData => {
+    if (!dbParentData) {
+      res.status(404).json({ message: 'No parent found with this id' });
+      return;
+    }
+    res.json(dbParentData);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
+router.delete('/:id', (req, res) => {
+Parent.destroy({
+  where: {
+    id: req.params.id
+  }
+})
+  .then(dbParentData => {
+    if (!dbParentData) {
+      res.status(404).json({ message: 'No parent found with this id' });
+      return;
+    }
+    res.json(dbParentData);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
 module.exports = router;
