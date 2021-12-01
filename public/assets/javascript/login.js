@@ -22,7 +22,7 @@ async function loginFormHandler(event) {
   }
   console.log("test");
 }
-    
+
 async function signupFormHandler(event) {
   event.preventDefault();
 
@@ -47,11 +47,7 @@ async function signupFormHandler(event) {
   }
   console.log("test");
 }
-  
+
 document.querySelector('#login').addEventListener('click', loginFormHandler);
 
 document.querySelector('#create').addEventListener('click', signupFormHandler);
-
-
-
-

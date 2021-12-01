@@ -10,8 +10,3 @@
     --spacing-four: calc(1rem * 1.5);
     --spacing-five: calc(1rem * 3);
 }
-
-body {
-    background-color: var(--secondary);
-}
-
