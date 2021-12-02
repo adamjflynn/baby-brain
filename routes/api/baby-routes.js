@@ -7,6 +7,10 @@ router.get('/', (req, res) => {
     Baby.findAll({
         include: [
             {
+                model: Parent,
+                attributes: ['username']
+            },
+            {
                 model: Event,
                 attributes: ['note']
             }
@@ -23,6 +27,10 @@ router.get('/:id', (req, res) => {
     Baby.findOne({
         include: [
             {
+                model: Parent,
+                attributes: ['username']
+            },
+            {
                 model: Event,
                 attributes: ['note']
             }
@@ -31,7 +39,7 @@ router.get('/:id', (req, res) => {
             id: req.params.id
         }
     })
-        .then(dbBabyData => {
+        .then(dbbabyData => {
             if (!dbBabyData) {
                 res.status(404).json({ message: 'No Matches' });
                 return;
@@ -46,7 +54,8 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     Baby.create({
-        baby_name: req.body['baby_name']
+        baby_name: req.body.baby_name,
+        parent_id: req.body.parent_id
     })
         .then(dbBabyData => res.json(dbBabyData))
         .catch(err => {
@@ -55,3 +64,23 @@ router.post('/', (req, res) => {
         });
 });
 
+router.delete('/:id', (req, res) => {
+    Baby.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(dbBabyData => {
+        if (!dbBabyData) {
+          res.status(404).json({ message: 'No baby found with this id' });
+          return;
+        }
+        res.json(dbBabyData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+    });
+
+module.exports = router;

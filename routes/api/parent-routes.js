@@ -4,6 +4,7 @@ const { Parent, Baby } = require('../../models');
 
 
 
+
 router.get('/', (req, res) => {
   
   Parent.findAll({
@@ -85,3 +86,55 @@ router.post('/login', (req, res) => {
   });
 });
 
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  }
+  else {
+    res.status(404).end();
+  }
+});
+
+
+router.put('/:id', (req, res) => {
+Parent.update(req.body, {
+  individualHooks: true,
+  where: {
+    id: req.params.id
+  }
+})
+  .then(dbParentData => {
+    if (!dbParentData) {
+      res.status(404).json({ message: 'No parent found with this id' });
+      return;
+    }
+    res.json(dbParentData);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
+router.delete('/:id', (req, res) => {
+Parent.destroy({
+  where: {
+    id: req.params.id
+  }
+})
+  .then(dbParentData => {
+    if (!dbParentData) {
+      res.status(404).json({ message: 'No parent found with this id' });
+      return;
+    }
+    res.json(dbParentData);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
+module.exports = router;
