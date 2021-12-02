@@ -1,5 +1,4 @@
 const Baby = require("./baby");
-const Action = require("./action");
 const Parent = require('./parent');
 const Event = require('./event');
 
@@ -12,10 +11,6 @@ Parent.hasMany(Baby, {
     foreignKey: 'baby_id'
   });
 
-  Action.hasMany(Event, {
-    foreignKey: 'action_id'
-  });
-
   Baby.belongsTo(Parent, {
     foreignKey: 'parent_id'
   });
@@ -24,8 +19,5 @@ Parent.hasMany(Baby, {
     foreignKey: 'baby_id'
   });
 
-  Event.belongsTo(Action, {
-    foreignKey: 'action_id'
-  });
 
-  module.exports = { Baby, Parent, Action, Event};
+  module.exports = { Baby, Parent, Event};
