@@ -54,7 +54,7 @@ router.post('/', withAuth, (req, res) => {
   Event.create({
       note: req.body.note,
       event_type: req.body.event_type,
-      creator_id: req.session.creator_id
+    
       
   })
       .then(dbEventData => res.json(dbEventData))
