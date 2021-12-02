@@ -14,10 +14,10 @@ Event.init(
             primaryKey: true,
             autoIncrement: true
         },
-        action_name: {
+        /*action_name: {
             type: DataTypes.STRING,
             allowNull: false
-        },
+        },*/
         baby_id: {
                 type: DataTypes.INTEGER,
                 references: {

@@ -67,12 +67,12 @@
 
                             <div class="inline-flex">
                                 <label class="block font-semibold text-left mr-4 mt-4">Child's Name</label>
-                                <input type="text" id = "child_name" placeholder="Child's Name"
+                               - <input type="text" id = "child_name" placeholder="Child's Name"
                                     class="border w-96 h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md">
                             </div>
                         </div>
                         <div class="flex justify-around item-baseline">
-                            <button type="button" id ="addChild"
+                          -  <button type="button" id ="addChild"
                                 class="mt-4 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Add
                                 Child</button>
                         </div>
@@ -91,7 +91,7 @@
 
                             <div class="inline-flex">
                                 <label class="mt-4 block font-semibold text-left mr-4">Select event type</label>
-                                <select placeholder="Event Type"
+                                <select id="event-type" placeholder="Event Type"
                                     class="form-select w-96 h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md"
                                     name="filterEvent" id="filterEvent">
                                     <!-- This picklist will be populated by the actions table -->
@@ -102,11 +102,11 @@
                             <div class="px-8 py-6">
                                 <div class="inline-flex">
                                     <label class="block font-semibold text-left mr-4">Event Notes</label>
-                                    <input type="textarea" placeholder="Event Notes"
+                                    <input id="notes" type="textarea" placeholder="Event Notes"
                                         class="border w-96 h-20 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md">
                                 </div>
                                 <div class="flex justify-around item-baseline">
-                                    <button type="submit"
+                                    <button type="submit" id="addEventForm"
                                         class="mt-4 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Add
                                         Event</button>
                                 </div>
