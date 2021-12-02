@@ -14,12 +14,9 @@ Event.init(
             primaryKey: true,
             autoIncrement: true
         },
-        action_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'Action',
-                key: 'id'
-            },
+        action_name: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
         baby_id: {
                 type: DataTypes.INTEGER,

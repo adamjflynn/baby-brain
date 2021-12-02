@@ -56,7 +56,7 @@ router.get('/:id', withAuth, (req, res) => {
 router.post('/', withAuth, (req, res) => {
     Baby.create({
         baby_name: req.body.baby_name,
-        parent_id: req.body.parent_id
+        parent_id: req.session.parent_id
     })
         .then(dbBabyData => res.json(dbBabyData))
         .catch(err => {

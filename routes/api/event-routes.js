@@ -8,7 +8,7 @@ const withAuth = require('../../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
     Event.findAll({
-      attributes: ['id', 'baby_id', 'note', 'created_at'],
+      attributes: ['created_at', 'baby_name','action_name', 'note',],
       include: [
         {
           model: Baby,
@@ -53,7 +53,7 @@ router.get('/:id', withAuth, (req, res) => {
 router.post('/', withAuth, (req, res) => {
   Event.create({
       note: req.body.note,
-      action_id: req.body.action_id,
+      action_name: req.body.action_name,
       baby_id: req.body.baby_id
   })
       .then(dbEventData => res.json(dbEventData))

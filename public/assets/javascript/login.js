@@ -3,7 +3,7 @@ async function loginFormHandler(event) {
 
   const username = document.querySelector('.username').value.trim();
   const password = document.querySelector('.password').value.trim();
-
+  console.log(username,password)
   if (username && password) {
     const response = await fetch('/api/parents/login', {
       method: 'post',
@@ -15,7 +15,7 @@ async function loginFormHandler(event) {
     });
 
     if (response.ok) {
-      document.location.replace('./html/user.html');
+      document.location.replace('/');
     } else {
       alert(response.statusText);
     }
@@ -28,7 +28,7 @@ async function signupFormHandler(event) {
 
   const username = document.querySelector('.username').value.trim();
   const password = document.querySelector('.password').value.trim();
-
+console.log(username,password)
   if (username && password) {
     const response = await fetch('/api/parents', {
       method: 'post',
@@ -40,7 +40,7 @@ async function signupFormHandler(event) {
     });
 
     if (response.ok) {
-      document.location.replace('./html/user.html');
+      document.location.replace('/');
     } else {
       alert(response.statusText);
     }
