@@ -10,7 +10,8 @@ const {Baby,Event,Parent} = require('../Models')
 
 router.get('/',withAuth, async (req,res) => {
     Parent.findOne({where:{id:req.session.parent_id}},{
-        include: [ Baby, Event
+        include: [ Baby,
+                   Event
 
         //   {
         //     model: Baby,
@@ -18,14 +19,17 @@ router.get('/',withAuth, async (req,res) => {
         //   }
         ]   
       })
-      .then( async (dbEventData) =>{
-          const parent = dbEventData.get({plain:true})
+      .then( async (dbParentData) =>{
+          const parent = dbParentData.get({plain:true})
           console.log(parent)
           const babyData= await Baby.findAll({where:{parent_id:parent.id}})
           const baby = babyData.map(b=>b.get({plain:true}))
           console.log(baby)
           parent.baby=baby
-          res.render("user",parent)
+          const eventData = await Event.findAll({where:{parent_id:parent.id}})
+          const events = eventData.map(e=>e.get({plain:true}))
+          parent.event = events
+          res.render("user",events)
       })
       .catch(err => {
         console.log(err)
@@ -38,8 +42,7 @@ router.get('/home',(req,res) => {
 })
 
 
-router.get('/', (req, res) => {
-  console.log('======================');
+/*router.get('/', (req, res) => {
   Event.findAll({
     where: {
       parent_id: req.session.parent_id
@@ -60,7 +63,7 @@ router.get('/', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
-});
+});*/
 
 
 

@@ -18,7 +18,7 @@ Event.init(
             type: DataTypes.STRING,
             allowNull: true
         },
-        parent_id: {
+        creator_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'Parent',

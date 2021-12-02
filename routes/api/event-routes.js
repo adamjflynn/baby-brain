@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Event, Baby } = require('../../models');
+const { Event, Baby, Parent } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
@@ -9,13 +9,13 @@ const withAuth = require('../../utils/auth');
 router.get('/', withAuth, (req, res) => {
     Event.findAll({
       attributes: ['id','event_type', 'note'],
-      /*include: [
+      include: [
         {
-          model: Baby,
-          attributes: ['baby_name']
+          model: Parent,
+          attributes: ['username']
   
         }
-      ]*/   
+      ]   
     })
     .then(dbEventData => res.json(dbEventData))
     .catch(err => {
@@ -27,12 +27,12 @@ router.get('/', withAuth, (req, res) => {
 router.get('/:id', withAuth, (req, res) => {
   Event.findOne({
     attributes: ['created_at','event_type', 'note'],
-    /*include: [
+    include: [
       {
-        model: Baby,
-        attributes: ['baby_name']
+        model: Parent,
+        attributes: ['username']
       }
-    ],*/
+    ],
     where: {
       id: req.params.id
     }
@@ -54,6 +54,7 @@ router.post('/', withAuth, (req, res) => {
   Event.create({
       note: req.body.note,
       event_type: req.body.event_type,
+      creator_id: req.session.creator_id
       
   })
       .then(dbEventData => res.json(dbEventData))

@@ -8,10 +8,10 @@
                 <span class="text-2xl">Childhood events</span>
 
                 <div class="h-screen mt-4 bg-gray-300 shadow-md rounded-lg">
-                    <ol>
-                        {{#each events as |event|}}
+                    <ol class="event-list">
+                        {{#each event }}
                         <li>
-                            {{ event }}
+                             {{@note}} {{note}}
                         </li>
                         {{/each}}
                     </ol>
@@ -97,7 +97,7 @@
 
 
             <!-- Add an event -->
-            <form id="addEvent" class="h-auto text-gray-800 flex flex-col sm:mx-auto text-center">
+            <form id="event-form" class="h-auto text-gray-800 flex flex-col sm:mx-auto text-center">
                 <span class="text-2xl">Add an event</span>
                 <div class="mt-4 bg-gray-300 shadow-md rounded-lg">
                     <div class="h-2 bg-red-400 rounded-t-md"></div>
@@ -106,22 +106,22 @@
                         <div class="inline-flex">
                             <label for="event-type" class="mt-4 block font-semibold text-left mr-4">Select event
                                 type</label>
-                            <select name="event-type" id="event-type" placeholder="Event Type"
+                            <select name="eventType" id="event-type" placeholder="Event Type"
                                 class="form-select w-96 h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md"
                                 name="event-type" id="filterEvent">
-                                <option id="nursing">Nursing</option>
-                                <option id="feeding">Feeding</option>
-                                <option id="sleep">Sleep</option>
-                                <option id="diaper">Diaper Change</option>
+                                <option attributes="selected" value="nursing" >Nursing</option>
+                                <option value="feeding">Feeding</option>
+                                <option value="sleep">Sleep</option>
+                                <option value="diaper">Diaper Change</option>
                                 <!-- This picklist will be populated by the actions table -->
                             </select>
                         </div>
 
 
-                        <div id="event-note-form" class="px-8 py-6">
+                        <div class="px-8 py-6">
                             <div class="inline-flex">
                                 <label for="note" class="block font-semibold text-left mr-4">Event Notes</label>
-                                <textarea name="note" id="notes" type="textarea" placeholder="Event Notes"
+                                <textarea name="note" id="note" placeholder="Event Notes"
                                     class="border w-96 h-20 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md"></textarea>
                             </div>
                             <div class="flex justify-around item-baseline">

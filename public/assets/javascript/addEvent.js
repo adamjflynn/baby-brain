@@ -1,10 +1,14 @@
 async function addEventFunction(event) {
   event.preventDefault();
 
-  const eventType = document.querySelector('select[name="event-type').options.selectedIndex.text
+  console.log('testevent1')
+
+  const eventOptions = document.getElementById('event-type')
+  const eventType = eventOptions.options[eventOptions.selectedIndex].value.trim()
   const note = document.querySelector('textarea[name="note"]').value.trim();
+
  
-  if(eventType || note) {
+  if(note) {
     const response = await fetch(`/api/events`, {
       method: 'POST',
       body: JSON.stringify({
@@ -17,15 +21,15 @@ async function addEventFunction(event) {
     })
    
     if (response.ok) {
-      document.location.reload();
+      document.location.replace('/');
     } else {
       alert(response.statusText);
     }
   }
  
-  console.log('testevent')
+  console.log('testevent2')
 }
 
-document.querySelector('#event-note-form').addEventListener('submit', addEventFunction)
+document.querySelector('#event-form').addEventListener('submit', addEventFunction)
 
 

@@ -8,7 +8,7 @@ Parent.hasMany(Baby, {
 });
 
 Parent.hasMany(Event, {
-  foreignKey: 'parent_id'
+  foreignKey: 'creator_id'
 });
 
 Baby.hasMany(Event, {
@@ -24,7 +24,7 @@ Event.belongsTo(Baby, {
 });
 
 Event.belongsTo(Parent, {
-  foreignKey: 'baby_id'
+  foreignKey: 'creator_id'
 });
 
 
