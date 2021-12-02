@@ -20,7 +20,6 @@ async function loginFormHandler(event) {
         alert(response.statusText);
       }
     }
-  console.log("test");
    }
   
   async function signupFormHandler(event) {
@@ -45,7 +44,6 @@ async function loginFormHandler(event) {
         alert(response.statusText);
       }
     }
-    console.log("test");
   }
 
   document.querySelector('#login').addEventListener('click', loginFormHandler);
