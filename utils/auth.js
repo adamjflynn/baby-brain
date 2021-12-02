@@ -1,6 +1,6 @@
 const withAuth = (req, res, next) => {
     if (!req.session.parent_id) {
-      res.redirect('/');
+      res.redirect('/home');
     } else {
       next();
     }

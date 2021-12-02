@@ -74,18 +74,20 @@ router.post('/', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-  
+  console.log("hello")
   Parent.findOne({
     where: {
       username: req.body.username
     }
   }).then(dbParentData => {
     if (!dbParentData) {
+      console.log("username Not found")
       res.status(400).json({ message: 'Username not found' });
       return;
     }
     dbParentData.checkPassword(req.body.password).then(correct => {
     if (!correct) {
+      console.log("Password incorrect")
       res.status(400).json({ message: 'Incorrect password' });
       return;
     }else{
