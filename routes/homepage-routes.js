@@ -10,7 +10,8 @@ const {Baby,Event,Parent} = require('../Models')
 
 router.get('/',withAuth, async (req,res) => {
     Parent.findOne({where:{id:req.session.parent_id}},{
-        include: [ Baby
+        include: [ Baby, Event
+
         //   {
         //     model: Baby,
         //     include:[{model:Event}]
@@ -35,5 +36,33 @@ router.get('/',withAuth, async (req,res) => {
 router.get('/home',(req,res) => {
     res.render('login')
 })
+
+
+router.get('/', (req, res) => {
+  console.log('======================');
+  Event.findAll({
+    where: {
+      parent_id: req.session.parent_id
+    },
+    attributes: [
+      'id',
+      'event_type',
+      'note'
+    ]
+  })
+    .then(dbEventData => {
+      const events = dbEventData.map(event => event.get({ plain: true }));
+      res.render('user', {
+        events,
+        loggedIn: true });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+
+
 
 module.exports = router;

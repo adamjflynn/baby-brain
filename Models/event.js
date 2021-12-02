@@ -14,10 +14,17 @@ Event.init(
             primaryKey: true,
             autoIncrement: true
         },
-        /*action_name: {
+        event_type: {
             type: DataTypes.STRING,
-            allowNull: false
-        },*/
+            allowNull: true
+        },
+        parent_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'Parent',
+                key: 'id'
+            }
+        },
         baby_id: {
                 type: DataTypes.INTEGER,
                 references: {

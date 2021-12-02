@@ -23,29 +23,3 @@ async function saveBaby(event) {
 
 document.querySelector('#addChild').addEventListener('click', saveBaby);
 
-async function addEventFunction(event) {
-  event.preventDefault();
-
-  const eventType = document.querySelector('#event-type').value;
-  const notes = document.querySelector('#notes').value;
-
-  const response = await fetch(`/api/events`, {
-    method: 'POST',
-    body: JSON.stringify({
-      eventType,
-      note
-    }),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  });
-
-  if (response.ok) {
-    document.location.replace('/');
-  } else {
-    alert(response.statusText);
-  }
-  console.log('testevent')
-}
-
-document.querySelector('#addEvent').addEventListener('submit', addEventFunction)
