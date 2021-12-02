@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const { Event, Baby } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 
 
 
 
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Event.findAll({
       attributes: ['id', 'baby_id', 'note', 'created_at'],
       include: [
@@ -23,7 +24,7 @@ router.get('/', (req, res) => {
     })
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
   Event.findOne({
     attributes: ['id', 'baby_id', 'note', 'created_at'],
     include: [
@@ -49,7 +50,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
   Event.create({
       note: req.body.note,
       action_id: req.body.action_id,
@@ -62,7 +63,7 @@ router.post('/', (req, res) => {
       });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
   Event.destroy({
     where: {
       id: req.params.id

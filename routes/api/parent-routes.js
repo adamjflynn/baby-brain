@@ -1,11 +1,13 @@
 const router = require('express').Router();
 const { Parent, Baby } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 
 
 
 
-router.get('/', (req, res) => {
+
+router.get('/', withAuth, (req, res) => {
   
   Parent.findAll({
     attributes: { exclude: ['password'] },
@@ -23,7 +25,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
   Parent.findOne({
     attributes: { exclude: ['password'] },
     include: [
@@ -56,7 +58,15 @@ router.post('/', (req, res) => {
     username: req.body.username,
     password: req.body.password
   })
-    .then(dbParentData => res.json(dbParentData))
+    .then(dbParentData => {
+      req.session.save(() => {
+        req.session.parent_id = dbParentData.id;
+        req.session.parent_name = dbParentData.username;
+        req.session.loggedIn = true;
+        res.json({ user: dbParentData, message: 'You are now logged in!' });
+      })
+      
+    })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -74,19 +84,24 @@ router.post('/login', (req, res) => {
       res.status(400).json({ message: 'Username not found' });
       return;
     }
-
-    const correctPassword = dbParentData.checkPassword(req.body.password);
-
-    if (!correctPassword) {
+    dbParentData.checkPassword(req.body.password).then(correct => {
+    if (!correct) {
       res.status(400).json({ message: 'Incorrect password' });
       return;
-    }
+    }else{
 
-    res.json({ user: dbParentData, message: 'You are now logged in!' });
+    req.session.save(() => {
+      req.session.parent_id = dbParentData.id;
+      req.session.parent_name = dbParentData.username;
+      req.session.loggedIn = true;
+      res.json({ user: dbParentData, message: 'You are now logged in!' });
+    })
+    }
+  })
   });
 });
 
-router.post('/logout', (req, res) => {
+router.post('/logout', withAuth, (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
@@ -98,7 +113,7 @@ router.post('/logout', (req, res) => {
 });
 
 
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
 Parent.update(req.body, {
   individualHooks: true,
   where: {
@@ -118,7 +133,7 @@ Parent.update(req.body, {
   });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
 Parent.destroy({
   where: {
     id: req.params.id
