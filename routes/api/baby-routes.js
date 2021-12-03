@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 
 
 
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
     Baby.findAll({
         include: [
             {

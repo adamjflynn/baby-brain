@@ -11,7 +11,8 @@
                     <ol class="event-list">
                         {{#each event }}
                         <li>
-                             {{@note}} {{note}}
+                            {{note}}
+                            {{id}}
                         </li>
                         {{/each}}
                     </ol>
@@ -58,7 +59,7 @@
                                 <option id="feedingfilter">Feeding</option>
                                 <option id="sleepfilter">Sleep</option>
                                 <option id="diaperfilter">Diaper Change</option>
-                                <option></option>
+                                
                                 <!-- This picklist will be populated by the actions table -->
                             </select>
                         </div>
@@ -109,7 +110,7 @@
                             <select name="eventType" id="event-type" placeholder="Event Type"
                                 class="form-select w-96 h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md"
                                 name="event-type" id="filterEvent">
-                                <option attributes="selected" value="nursing" >Nursing</option>
+                                <option value="nursing" >Nursing</option>
                                 <option value="feeding">Feeding</option>
                                 <option value="sleep">Sleep</option>
                                 <option value="diaper">Diaper Change</option>

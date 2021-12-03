@@ -28,8 +28,23 @@ router.get('/',withAuth, async (req,res) => {
           parent.baby=baby
           const eventData = await Event.findAll({where:{parent_id:parent.id}})
           const events = eventData.map(e=>e.get({plain:true}))
+          console.log(events)
           parent.event = events
-          res.render("user",events)
+          res.render("user",parent)
+          // res.render(user, {parent: {key: valuePair}})
+          // res.render(user, [])
+
+          /*
+            {
+              id: 9,
+              username: 'azizahmed77',
+              password: '$argon2id$v=19$m=4096,t=3,p=1$e6svQ9cqi2FKLtj36r4/rw$Yd9NIKBnojfwP+X8sHmmYxbZrpjgTn/w4aZMiVwvKig',
+              createdAt: 2021-12-03T02:29:50.000Z,
+              updatedAt: 2021-12-03T02:29:50.000Z
+              baby: [Data frombaby DB]
+              event:[Data from eventDB]
+            }
+          */
       })
       .catch(err => {
         console.log(err)
@@ -42,7 +57,7 @@ router.get('/home',(req,res) => {
 })
 
 
-/*router.get('/', (req, res) => {
+router.get('/', (req, res) => {
   Event.findAll({
     where: {
       parent_id: req.session.parent_id
@@ -63,7 +78,7 @@ router.get('/home',(req,res) => {
       console.log(err);
       res.status(500).json(err);
     });
-});*/
+});
 
 
 

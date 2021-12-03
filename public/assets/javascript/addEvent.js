@@ -4,7 +4,7 @@ async function addEventFunction(event) {
   console.log('testevent1')
 
   const eventOptions = document.getElementById('event-type')
-  const eventType = eventOptions.options[eventOptions.selectedIndex].value.trim()
+  const event_type = eventOptions.options[eventOptions.selectedIndex].value
   const note = document.querySelector('textarea[name="note"]').value.trim();
 
  
@@ -12,7 +12,7 @@ async function addEventFunction(event) {
     const response = await fetch(`/api/events`, {
       method: 'POST',
       body: JSON.stringify({
-        eventType,
+        event_type,
         note
       }),
       headers: {

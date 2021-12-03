@@ -6,7 +6,7 @@ const withAuth = require('../../utils/auth');
 
 
 
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
     Event.findAll({
       attributes: ['id','event_type', 'note'],
       include: [
@@ -54,6 +54,7 @@ router.post('/', withAuth, (req, res) => {
   Event.create({
       note: req.body.note,
       event_type: req.body.event_type,
+      parent_id: req.session.parent_id
     
       
   })
