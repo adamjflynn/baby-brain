@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Event, Baby, Parent } = require('../../models');
 const withAuth = require('../../utils/auth');
-
+const sequelize = require('../../config/connection');
 
 
 
@@ -54,9 +54,9 @@ router.post('/', withAuth, (req, res) => {
   Event.create({
       note: req.body.note,
       event_type: req.body.event_type,
-      parent_id: req.session.parent_id
-    
-      
+      parent_id: req.session.parent_id,
+      baby_id:sequelize.literal('(SELECT id FROM Baby WHERE baby_name = ',req.session.child_name,')').map
+  
   })
       .then(dbEventData => res.json(dbEventData))
       .catch(err => {
