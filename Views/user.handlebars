@@ -11,8 +11,7 @@
                     <ol class="event-list">
                         {{#each event }}
                         <li>
-                            {{note}}
-                            {{id}}
+                            {{created_at}} {{baby_name}} {{event_type}} {{note}}
                         </li>
                         {{/each}}
                     </ol>
@@ -114,11 +113,16 @@
                                 <option value="feeding">Feeding</option>
                                 <option value="sleep">Sleep</option>
                                 <option value="diaper">Diaper Change</option>
-                                <!-- This picklist will be populated by the actions table -->
                             </select>
                         </div>
-
-
+                            <label class="block font-semibold text-left mr-4 mt-4">Child</label>
+                            <select placeholder="Child name" id="childEvent"
+                                class="form-select w-96 h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md"
+                                name="filterChild" id="filterChild">
+                                {{#each baby}}
+                                <option value="{{baby_name}}">{{baby_name}}</option>
+                                {{/each}}
+                            </select>
                         <div class="px-8 py-6">
                             <div class="inline-flex">
                                 <label for="note" class="block font-semibold text-left mr-4">Event Notes</label>
