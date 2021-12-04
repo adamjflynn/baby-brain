@@ -65,7 +65,13 @@ router.get('/', (req, res) => {
     attributes: [
       'id',
       'event_type',
-      'note'
+      'note',
+     'created_at',
+     'baby_name'
+    ],
+    include:[
+      {model:Baby,
+      attributes:['id','baby_name']}
     ]
   })
     .then(dbEventData => {
