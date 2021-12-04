@@ -13,9 +13,9 @@
 </head>
 
 
-<body class="bg-gradient-to-b from-green-200 via-blue-200 to-red-200">
+<body class="bg-gradient-to-b from-green-200 via-blue-200 to-red-200 relative px-4 sm:max-w-xl sm:mx-auto text-center">
     <header>
-        <div class="pt-8 flex-row justify-space-between align-center container-fluid mx-auto">
+        <div class="pt-12 flex-row justify-space-between align-center container-fluid mx-auto">
             <div class="flex-shrink-0 flex items-center">
                 <span class="m-auto text-5xl text-red-400 font-medium"><i class="fas fa-baby px-2"
                         aria-hidden="true"></i>Baby Brain</span>
@@ -23,16 +23,16 @@
             </div>
     </header>
 
-    <div class="min-h-screen text-gray-800 flex flex-col justify-center">
+    <div class="min-h-screen md:max-h-screen text-gray-800 flex flex-col justify-center">
         <!-- page content goes here -->
         <!-- establish 2 colums -->
-        <div class="grid grid-cols-3 gap-3 mt-8">
+        <div class="grid grid-cols-2">
 
             <!-- first column, all events -->
-            <div class="col-span-2 mx-8">
+            <div class="col-span-1 m-8">
                 <div class="h-100 text-gray-800 flex flex-col sm:mx-auto text-center">
                     <span class="text-2xl">Childhood events</span>
-                    <div class="h-screen mt-4 bg-gray-300 shadow-md rounded-lg">
+                    <div class="min-h-screen mt-4 bg-gray-300 shadow-md rounded-lg">
                         <div class="h-2 bg-red-400 rounded-t-md"></div>
                         <div class="px-8 py-6">
                             <div class="flex justify-around item-baseline">
@@ -43,10 +43,10 @@
             </div>
 
             <!-- second column -->
-            <div class="col-span-1">
+            <div class="col-span-1 m-8">
 
                 <!-- Filter events -->
-                <div class="h-auto text-gray-800 flex flex-col sm:mx-auto text-center">
+                <div class="min-h-auto text-gray-800 flex flex-col sm:mx-auto text-center">
                     <span class="text-2xl">Filter events</span>
                     <div class="mt-4 mb-4 bg-gray-300 shadow-md rounded-lg">
                         <div class="h-2 bg-red-400 rounded-t-md"></div>
@@ -151,3 +151,4 @@
 </body>
 <script src="../javascript/logout.js"></script>
 
+</html>
