@@ -13,7 +13,8 @@
 </head>
 
 
-<body class="bg-gradient-to-b from-green-200 via-blue-200 to-red-200 relative px-4 sm:max-w-xl sm:mx-auto text-center">
+<!-- <body class="bg-gradient-to-b from-green-200 via-blue-200 to-red-200 relative px-4 sm:max-w-xl sm:mx-auto text-center"> -->
+    <body class="bg-gradient-to-b from-green-200 via-blue-200 to-red-200 ">
     <header>
         <div class="pt-12 flex-row justify-space-between align-center container-fluid mx-auto">
             <div class="flex-shrink-0 flex items-center">
@@ -90,7 +91,7 @@
                             <div class="inline-flex">
                                 <label class="block font-semibold text-left mr-4 mt-4">Child's Name</label>
                                 <input type="text" placeholder="Child's Name"
-                                    class="border w-96 h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md">
+                                    class="border object-fill h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md">
                             </div>
                         </div>
                         <div class="flex justify-around item-baseline">
@@ -119,16 +120,21 @@
                                     </select>
                                 </div>
 
-                            <div class="inline-flex">
+                            <div class="inline-flex ">
                                 <label class="mt-4 block font-semibold text-left mr-4">Select event type</label>
                                 <select placeholder="Event Type"
-                                    class="form-select w-96 h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md"
+                                    class="form-select w-96 h-10 my-4
+                                 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md" 
                                     name="filterEvent" id="filterEvent">
-                                    <!-- This picklist will be populated by the actions table -->
+                                    <option value="nursing">Nursing</option>
+                                    <option value="feeding">Feeding</option>
+                                    <option value="sleep">Sleep</option>
+                                    <option value="diaper">Diaper Change</option>
                                 </select>
                             </div>
 
-
+                            <!-- class="form-select w-96 h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md" -->
+                                    
                                 
                                 <div class="px-8 py-4">
                                     <div class="inline-flex">
