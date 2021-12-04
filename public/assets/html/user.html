@@ -15,17 +15,16 @@
 
 
 <body class="bg-gradient-to-b from-green-200 via-blue-200 to-red-200">
-
-    <header>
-        <div class="pt-8 flex-row justify-space-between align-center container-fluid mx-auto">
+    
+    <header class="pt-8 justify-space-around align-center mx-auto w-1/2 sm:w-full">
             <div class="flex-shrink-0 flex items-center">
-                <span class="m-auto text-5xl text-red-400 font-medium"><i class="fas fa-baby px-2"
+                <span class="m-2 text-5xl text-red-400 font-medium"><i class="fas fa-baby px-2"
                         aria-hidden="true"></i>Baby Brain</span>
                 <button type="button" id="logout" class="mt-4 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Logout</button>
             </div>
     </header>
-
-    <div class="min-h-screen md:max-h-screen text-gray-800 flex flex-col justify-center">
+    <main>
+    <div class="flex-grow min-h-screen md:max-h-screen text-gray-800 flex flex-col justify-center">
         <!-- page content goes here -->
         <!-- establish 2 colums -->
         <div class="grid grid-cols-2">
@@ -82,7 +81,7 @@
                     </div>
                 </div>
 
-                <!--    Add a Child -->
+                <!-- Add a Child -->
                 <div class="h-auto text-gray-800 flex flex-col sm:mx-auto text-center"> 
                     <span class="text-2xl">Add a child</span>
                     <div class="my-4 bg-gray-300 shadow-md rounded-lg">
@@ -154,7 +153,8 @@
                 </div>
             </div>
         </div>
-
+        </div>
+        </main>
 </body>
 <script src="../javascript/logout.js"></script>
 
