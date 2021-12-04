@@ -11,14 +11,14 @@
   * [Contributing](#contributing)
   * [GitHub](#github)
   * [Heroku](#heroku)
-  
-  ## Installation
-
-  N/A
 
   ## Usage
 
   Login with your username or email and password. Or if you are a new user create a new account.  
+  From there you will be directed to your user page and given options to:
+  - add a child to your account.
+  - select a child that you already had saved. 
+  - create an event for a child saved to your account.
 
   ## Contributing
 
