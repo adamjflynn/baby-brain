@@ -16,8 +16,8 @@
 
 <body class="bg-gradient-to-b from-green-200 via-blue-200 to-red-200">
     
-    <header class="p-12 flex justify-center">
-            <div class="flex-shrink-0 flex items-center">
+    <header class="p-12 flex justify-around">
+            <div class="flex items-center">
                 <span class="m-2 text-5xl text-red-400 font-medium"><i class="fas fa-baby px-2"
                         aria-hidden="true"></i>Baby Brain</span>
                 <button type="button" id="logout" class="mt-4 flex bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Logout</button>
@@ -96,11 +96,10 @@
                             </div>
                         </div>
                         <div class="flex justify-around item-baseline">
-                            <button type="submit" class="my-4 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Add
+                            <button type="submit" class="my-8 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Add
                                 Child</button>
                         </div>
-                    </div>
-                        
+                    </div>                        
                 </div>
 
 
@@ -109,22 +108,23 @@
                         <span class="text-2xl">Add an event</span>
                         <div class="mt-4 bg-gray-300 shadow-md rounded-lg">
                             <div class="h-2 bg-red-400 rounded-t-md"></div>
-                            <div >
+                            
+                            <div class="px-8 py-4"></div>
 
-                                <div class="inline-flex">
-                                    <label class="block font-semibold text-left mr-4 mt-4">Select child</label> 
+                                <div class="inline-flex justify-center">
+                                    <label class="block font-semibold mr-4 mt-4">Child</label> 
                                     <select placeholder="Child name" 
-                                        class="form-select w-96 h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md" 
+                                        class="form-select flex flex-center h-5 w-64 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md" 
                                         name="filterChild" id="filterChild"
                                          >
                                             <!-- This picklist will be populated by selecting children from logged in user -->
                                     </select>
                                 </div>
 
-                            <div class="inline-flex ">
-                                <label class="mt-4 block font-semibold text-left mr-4">Select event type</label>
+                            <div class="inline-flex">
+                                <label class="flex justify-start pl-2 mt-4 block font-semibold text-left mr-4">Select event type</label>
                                 <select placeholder="Event Type"
-                                    class="form-select w-96 h-10 my-4
+                                    class="form-select flex flex-center w-64 h-10 my-4
                                  hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md" 
                                     name="filterEvent" id="filterEvent">
                                     <option value="nursing">Nursing</option>
@@ -137,18 +137,18 @@
                             <!-- class="form-select w-96 h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md" -->
                                     
                                 
-                                <div class="px-8 py-4">
-                                    <div class="inline-flex">
-                                    <label class="block font-semibold text-left mr-4">Event Notes</label>
-                                    <input type="textarea" placeholder="Event Notes" class="border w-96 h-20 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md">  
-                                    </div>
-                               <div class="flex justify-around item-baseline">
-
-                                <button type="submit" class="mt-4 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Add Event</button>
+                            <div class="inline-flex">
+                                <label class="flex justify-start pt-4 block font-semibold text-left mr-4">Event Notes</label>
+                                <input type="textarea" placeholder="Event Notes" class="border w-64 h-20 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md">  
+                            </div>
+                            <div class="flex justify-around item-baseline">
+                                
+                                <button type="submit" class="my-8 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Add Event</button>
                             </div>
             
+            
                             </div>
-                        </div>
+                        
                     </div>
 
                 </div>
