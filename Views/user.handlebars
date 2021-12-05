@@ -7,49 +7,49 @@
             <div class="h-100 text-gray-800 flex flex-col sm:mx-auto text-center">
                 <span class="text-2xl">Childhood events</span>
 
-                <div class="h-screen mt-4 bg-gray-300 shadow-md rounded-lg">
-                    <ol class="event-list">
-                        {{#each event }}
-                        <li>
-                            {{created_at}} {{baby_name}} {{event_type}} {{note}}
-                        </li>
-                        {{/each}}
-                    </ol>
-                    
-
+                    {{!-- pink line --}}
                     <div class="h-2 bg-red-400 rounded-t-md"></div>
                     <div class="px-8 py-6">
                         <div class="flex justify-around item-baseline">
                         </div>
                     </div>
+                    {{!-- event populates here --}}
+                    <div class="h-screen mt-4 bg-gray-300 shadow-md rounded-lg">
+                        <ol class="event-list">
+                            {{#each event }}
+                            <li>
+                                {{created_at}} {{baby_name}} {{event_type}} {{note}}
+                            </li>
+                            {{/each}}
+                        </ol>            
+                    </div>
                 </div>
             </div>
-        </div>
 
         <!-- second column -->
         <div class="col-span-1">
 
             <!-- Filter events -->
-            <div class="h-auto text-gray-800 flex flex-col sm:mx-auto text-center">
+            {{!-- <div class="h-auto text-gray-800 flex flex-col sm:mx-auto text-center">
                 <span class="text-2xl">Filter events</span>
                 <div class="mt-4 mb-4 bg-gray-300 shadow-md rounded-lg">
                     <div class="h-2 bg-red-400 rounded-t-md"></div>
-                    <div class="px-8 py-6">
+                    <div class="px-8 py-6"> --}}
                         <!-- Filter by child       -->
-                        <div class="inline-flex">
+                        {{!-- <div class="inline-flex">
                             <label class="block font-semibold text-left mr-4 mt-4">Filter by child</label>
                             <select placeholder="Child name"
                                 class="form-select w-96 h-5 my-4 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md"
                                 name="filterChild" id="filterChild">
                                 {{#each baby}}
                                 <option value="{{baby_name}}">{{baby_name}}</option>
-                                {{/each}}
+                                {{/each}} --}}
                                 <!-- This picklist will be populated by selecting children from logged in user -->
-                            </select>
-                        </div>
+                            {{!-- </select>
+                        </div> --}}
 
                         <!-- filter by event -->
-                        <div class="inline-flex">
+                        {{!-- <div class="inline-flex">
                             <label class="block font-semibold text-left mr-4 mt-4">Filter by event type</label>
                             <select placeholder="Event Type"
                                 class="form-select w-96 h-5 my-4 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md"
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <!--    Add a Child -->
             <div class="h-auto text-gray-800 flex flex-col sm:mx-auto text-center">
