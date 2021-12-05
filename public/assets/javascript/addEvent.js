@@ -9,8 +9,8 @@ async function addEventFunction(event) {
 
   const eventOptions = document.getElementById('event-type')
   const event_type = eventOptions.options[eventOptions.selectedIndex].value
-  const baby_id = document.getElementById('childEvent').value
-  console.log(baby_id)
+  const baby_name = document.getElementById('childEvent').value
+  console.log(baby_name)
   //var baby_id = [sequelize.literal('(SELECT id FROM Baby WHERE baby_name = ', baby_name,')')]
   //baby_id = baby_id[0].map(obj => obj.id)
   //console.log(baby_id)
@@ -23,7 +23,7 @@ async function addEventFunction(event) {
       body: JSON.stringify({
         event_type,
         note,
-        baby_id
+        baby_name
       }),
       headers: {
         'Content-Type': 'application/json'
