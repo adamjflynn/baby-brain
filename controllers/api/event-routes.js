@@ -8,8 +8,12 @@ const sequelize = require('../../config/connection');
 
 router.get('/', (req, res) => {
     Event.findAll({
-      attributes: ['id','event_type', 'note'],
+      attributes: ['createdAt','id','event_type', 'note','baby_id'],
       include: [
+        {
+          model: Baby,
+          attributes: ['baby_name',]
+        },
         {
           model: Parent,
           attributes: ['username']
@@ -28,6 +32,7 @@ router.get('/:id', withAuth, (req, res) => {
   Event.findOne({
     attributes: ['created_at','event_type', 'note'],
     include: [
+
       {
         model: Parent,
         attributes: ['username']
@@ -50,12 +55,38 @@ router.get('/:id', withAuth, (req, res) => {
     });
 });
 
+router.put('/', withAuth, (req, res) => {
+  console.log("Post",req.body)
+  Event.findOne({
+    attributes: ['created_at','event_type', 'note'],
+    include: [
+
+      {
+        model: Parent,
+        attributes: ['username']
+      }
+    ],
+    where: {
+      // id: req.params.id,
+      baby_id: req.body.childFilter,
+      event_type: req.body.eventFilter
+      
+    }
+  })
+      .then(dbEventData => res.json(dbEventData))
+      .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+      });
+});
+
 router.post('/', withAuth, (req, res) => {
+  console.log("Post",req.body)
   Event.create({
       note: req.body.note,
       event_type: req.body.event_type,
       parent_id: req.session.parent_id,
-      baby_id:sequelize.literal('(SELECT id FROM Baby WHERE baby_name = ',req.session.child_name,')').map
+      baby_id:req.body.baby_name
   
   })
       .then(dbEventData => res.json(dbEventData))

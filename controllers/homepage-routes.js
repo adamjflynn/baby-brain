@@ -28,8 +28,12 @@ router.get('/',withAuth, async (req,res) => {
           parent.baby=baby
           const eventData = await Event.findAll({where:{parent_id:parent.id}})
           const events = eventData.map(e=>e.get({plain:true}))
-          console.log(events)
+          const parent_name = req.session.parent_name
+          const parent_id = req.session.parent_id
+
+          
           parent.event = events
+          console.log(parent)
           res.render("user",parent)
           // res.render(user, {parent: {key: valuePair}})
           // res.render(user, [])

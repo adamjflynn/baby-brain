@@ -3,6 +3,8 @@
     <!-- establish 2 colums -->
     <div class="grid grid-cols-3 gap-3 mt-8">
         <!-- first column, all events -->
+        {{parent_name}}
+        {{parent_id}} 
         <div class="col-span-2 mx-8">
             <div class="h-100 text-gray-800 flex flex-col sm:mx-auto text-center">
                 <span class="text-2xl">Childhood events</span>
@@ -11,7 +13,7 @@
                     <ol class="event-list">
                         {{#each event }}
                         <li>
-                            {{created_at}} {{baby_name}} {{event_type}} {{note}}
+                            {{createdAt}} {{baby_name}} {{event_type}} {{note}}
                         </li>
                         {{/each}}
                     </ol>
@@ -30,19 +32,19 @@
         <div class="col-span-1">
 
             <!-- Filter events -->
-            <div class="h-auto text-gray-800 flex flex-col sm:mx-auto text-center">
+            <form id="filter-form" class="h-auto text-gray-800 flex flex-col sm:mx-auto text-center">
                 <span class="text-2xl">Filter events</span>
                 <div class="mt-4 mb-4 bg-gray-300 shadow-md rounded-lg">
                     <div class="h-2 bg-red-400 rounded-t-md"></div>
-                    <div class="px-8 py-6">
+                    <div  class="px-8 py-6">
                         <!-- Filter by child       -->
                         <div class="inline-flex">
                             <label class="block font-semibold text-left mr-4 mt-4">Filter by child</label>
-                            <select placeholder="Child name"
+                            <select id="child-filter" placeholder="Child name"
                                 class="form-select w-96 h-5 my-4 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md"
                                 name="filterChild" id="filterChild">
                                 {{#each baby}}
-                                <option value="{{baby_name}}">{{baby_name}}</option>
+                                <option value="{{id}}">{{baby_name}}</option>
                                 {{/each}}
                                 <!-- This picklist will be populated by selecting children from logged in user -->
                             </select>
@@ -51,13 +53,13 @@
                         <!-- filter by event -->
                         <div class="inline-flex">
                             <label class="block font-semibold text-left mr-4 mt-4">Filter by event type</label>
-                            <select placeholder="Event Type"
+                            <select id="event-type-filter" placeholder="Event Type"
                                 class="form-select w-96 h-5 my-4 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md"
                                 name="filterEvent" id="filterEvent">
-                                <option id="nursingfilter">Nursing</option>
-                                <option id="feedingfilter">Feeding</option>
-                                <option id="sleepfilter">Sleep</option>
-                                <option id="diaperfilter">Diaper Change</option>
+                                <option value="nursing">Nursing</option>
+                                <option value="feeding">Feeding</option>
+                                <option value="sleep">Sleep</option>
+                                <option value="diaper">Diaper Change</option>
                             
                             </select>
                         </div>
@@ -69,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
 
             <!--    Add a Child -->
             <div class="h-auto text-gray-800 flex flex-col sm:mx-auto text-center">
@@ -107,7 +109,7 @@
                                 type</label>
                             <select name="eventType" id="event-type" placeholder="Event Type"
                                 class="form-select w-96 h-5 my-4 mt-2  hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md"
-                                name="event-type" id="filterEvent">
+                                name="event-type">
                                 <option value="nursing" >Nursing</option>
                                 <option value="feeding">Feeding</option>
                                 <option value="sleep">Sleep</option>
@@ -118,9 +120,9 @@
                             <label class="block font-semibold text-left mr-4 mt-4">Child</label>
                             <select placeholder="Child name" id="childEvent"
                                 class="form-select w-96 h-5 my-4 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md"
-                                name="filterChild" id="filterChild">
+                                name="filterChild">
                                 {{#each baby}}
-                                <option value="{{baby_name}}">{{baby_name}}</option>
+                                <option value="{{id}}">{{baby_name}}</option>
                                 {{/each}}
                             </select>
                         <div class="px-8 py-6">
@@ -144,3 +146,5 @@
     </div>
     <script src="/javascript/user.js"></script>
     <script src="/javascript/addEvent.js"></script>
+    <script src="/javascript/filterEvents.js"></script>
+   

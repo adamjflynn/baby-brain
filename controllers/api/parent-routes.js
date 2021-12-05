@@ -71,7 +71,10 @@ router.post('/', (req, res) => {
         req.session.parent_id = dbParentData.id;
         req.session.parent_name = dbParentData.username;
         req.session.loggedIn = true;
-        res.json({ user: dbParentData, message: 'You are now logged in!' });
+        res.json({ user: dbParentData,
+            parent_name: req.session.parent_name,
+            parent_id: req.session.parent_id,
+            message: 'You are now logged in!' });
       })
       
     })
@@ -104,7 +107,10 @@ router.post('/login', (req, res) => {
       req.session.parent_id = dbParentData.id;
       req.session.parent_name = dbParentData.username;
       req.session.loggedIn = true;
-      res.json({ user: dbParentData, message: 'You are now logged in!' });
+      res.json({ user: dbParentData,
+          parent_name: req.session.parent_name,
+          parent_id: req.session.parent_id, 
+         message: 'You are now logged in!' });
     })
     }
   })

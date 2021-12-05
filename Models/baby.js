@@ -14,7 +14,7 @@ Baby.init(
         primaryKey: true,
         autoIncrement: true
       },
-        baby_name: {
+      baby_name: {
         type: DataTypes.STRING,
         allowNull: false
       },

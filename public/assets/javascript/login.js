@@ -1,3 +1,4 @@
+console.log("JS loaded")
 async function loginFormHandler(event) {
   event.preventDefault();
 
@@ -28,7 +29,7 @@ async function signupFormHandler(event) {
 
   const username = document.querySelector('.username').value.trim();
   const password = document.querySelector('.password').value.trim();
-console.log(username,password)
+console.log("Create an account", username,password)
   if (username && password) {
     const response = await fetch('/api/parents', {
       method: 'post',
