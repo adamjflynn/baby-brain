@@ -9,36 +9,36 @@
             <div class="h-100 text-gray-800 flex flex-col sm:mx-auto text-center">
                 <span class="text-2xl">Childhood events</span>
 
-                <div class="h-screen mt-4 bg-gray-300 shadow-md rounded-lg">
-                    <ol class="event-list">
-                        {{#each event }}
-                        <li>
-                            {{createdAt}} {{baby_name}} {{event_type}} {{note}}
-                        </li>
-                        {{/each}}
-                    </ol>
-                    
-
+                    {{!-- pink line --}}
                     <div class="h-2 bg-red-400 rounded-t-md"></div>
                     <div class="px-8 py-6">
                         <div class="flex justify-around item-baseline">
                         </div>
                     </div>
+                    {{!-- event populates here --}}
+                    <div class="h-screen mt-4 bg-gray-300 shadow-md rounded-lg">
+                        <ol class="event-list">
+                            {{#each event }}
+                            <li>
+                                {{created_at}} {{baby_name}} {{event_type}} {{note}}
+                            </li>
+                            {{/each}}
+                        </ol>            
+                    </div>
                 </div>
             </div>
-        </div>
 
         <!-- second column -->
         <div class="col-span-1">
 
-            <!-- Filter events -->
-            <form id="filter-form" class="h-auto text-gray-800 flex flex-col sm:mx-auto text-center">
+            <!-- Filter events 
+             <form class="h-auto text-gray-800 flex flex-col sm:mx-auto text-center">
                 <span class="text-2xl">Filter events</span>
                 <div class="mt-4 mb-4 bg-gray-300 shadow-md rounded-lg">
                     <div class="h-2 bg-red-400 rounded-t-md"></div>
-                    <div  class="px-8 py-6">
-                        <!-- Filter by child       -->
-                        <div class="inline-flex">
+                    <div class="px-8 py-6"> }}
+                         Filter by child    
+                         <div class="inline-flex">
                             <label class="block font-semibold text-left mr-4 mt-4">Filter by child</label>
                             <select id="child-filter" placeholder="Child name"
                                 class="form-select w-96 h-5 my-4 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md"
@@ -47,11 +47,11 @@
                                 <option value="{{id}}">{{baby_name}}</option>
                                 {{/each}}
                                 <!-- This picklist will be populated by selecting children from logged in user -->
-                            </select>
-                        </div>
+                            {{!-- </select>
+                        </div> --}}
 
                         <!-- filter by event -->
-                        <div class="inline-flex">
+                        {{!-- <div class="inline-flex">
                             <label class="block font-semibold text-left mr-4 mt-4">Filter by event type</label>
                             <select id="event-type-filter" placeholder="Event Type"
                                 class="form-select w-96 h-5 my-4 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md"
@@ -71,45 +71,48 @@
                         </div>
                     </div>
                 </div>
-            </form>
+            </form> --}}
 
-            <!--    Add a Child -->
+            <!-- Add a Child -->
             <div class="h-auto text-gray-800 flex flex-col sm:mx-auto text-center">
                 <span class="text-2xl">Add a child</span>
                 <div class="my-4 bg-gray-300 shadow-md rounded-lg">
                     <div class="h-2 bg-red-400 rounded-t-md"></div>
                     <div class="px-8 py-6">
-
-                        <div class="inline-flex">
+                        
+                    <div class="inline-flex">
+                         {{!-- input text label --}}
                             <label class="block font-semibold text-left mr-4 mt-4">Child's Name</label>
-                            - <input type="text" id="child_name" placeholder="Child's Name"
+                           {{!-- input box for child name --}}
+                            <input type="text" id="child_name" placeholder="Child's Name"
                                 class="border w-96 h-5 my-4 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md">
                         </div>
                     </div>
+                    {{!-- add child button --}}
                     <div class="flex justify-around item-baseline">
-                        - <button type="button" id="addChild"
-                            class="mt-4 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Add
+                         <button type="button" id="addChild"
+                            class="my-8 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Add
                             Child</button>
                     </div>
                 </div>
-
-
             </div>
 
-
-            <!-- Add an event -->
+            <-- Add an event -->
             <form id="event-form" class="h-auto text-gray-800 flex flex-col sm:mx-auto text-center">
                 <span class="text-2xl">Add an event</span>
                 <div class="mt-4 bg-gray-300 shadow-md rounded-lg">
                     <div class="h-2 bg-red-400 rounded-t-md"></div>
-                    <div class="px-8 py-6">
+                    
+                    <div class="px-8 py-4"></div>
 
-                        <div class="inline-flex">
-                            <label for="event-type" class="mt-4 block font-semibold text-left mr-4">Select event
+                        <div class="inline-flex justify-center">
+                        {{!-- label for event type dropdown --}}
+                            <label for="event-type" class="flex justify-start mt-4 block font-semibold text-left mr-4">Select event
                                 type</label>
+                        
                             <select name="eventType" id="event-type" placeholder="Event Type"
-                                class="form-select w-96 h-5 my-4 mt-2  hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md"
-                                name="event-type">
+                                class="form-select flex flex-center w-64 h-10 my-4 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md"
+                                name="event-type" id="filterEvent">
                                 <option value="nursing" >Nursing</option>
                                 <option value="feeding">Feeding</option>
                                 <option value="sleep">Sleep</option>
@@ -117,23 +120,27 @@
 
                             </select>
                         </div>
-                            <label class="block font-semibold text-left mr-4 mt-4">Child</label>
+                        <!-- label for select child dropdown -->
+                            <label class="block font-semibold mr-4 mt-4">Select Child</label>
+                            {{!-- select child dropdown pulled from stored data --}}
                             <select placeholder="Child name" id="childEvent"
-                                class="form-select w-96 h-5 my-4 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md"
-                                name="filterChild">
+                                class="form-select w-64 h-5 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md"
+                                name="filterChild" id="filterChild">
                                 {{#each baby}}
                                 <option value="{{id}}">{{baby_name}}</option>
                                 {{/each}}
                             </select>
-                        <div class="px-8 py-6">
+  
                             <div class="inline-flex">
-                                <label for="note" class="block font-semibold text-left mr-4">Event Notes</label>
+                                {{!-- label for event note text area --}}
+                                <label for="note" class="flex justify-start pt-4 block font-semibold text-left mr-4">Event Notes</label>
+                                {{!-- text area for event note input --}}
                                 <textarea name="note" id="note" placeholder="Event Notes"
-                                    class="border w-96 h-20 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md"></textarea>
+                                    class="border w-64 h-20 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md"></textarea>
                             </div>
                             <div class="flex justify-around item-baseline">
                                 <button type="submit"
-                                    class="mt-4 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Add
+                                    class="my-8 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Add
                                     Event</button>
                             </div>
 
