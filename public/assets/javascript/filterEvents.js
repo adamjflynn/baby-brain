@@ -3,22 +3,23 @@ async function filterEventsFunction(event) {
   
     console.log('testfilter1')
   
-    const eventFilter = document.getElementById('event-type-filter').value
-    const childFilter = document.getElementById('child-filter').value
-    console.log(childFilter)
-    console.log(eventFilter)
+    const event_type = document.getElementById('event-type-filter').value
+    const baby_id = document.getElementById('child-filter').value
+    console.log(event_type)
+    console.log(baby_id)
   
    
-    if(eventFilter && childFilter) {
+    if(event_type && baby_id) {
       const response = await fetch(`/api/events/`, {
         method: 'PUT',
+        body: JSON.stringify({
+          event_type,
+          baby_id
+          
+        }),
         headers: {
           'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          eventFilter,
-          childFilter
-        })
+        }
       })
      
       if (response.ok) {

@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
       include: [
         {
           model: Baby,
-          attributes: ['baby_name',]
+          attributes: ['baby_name']
         },
         {
           model: Parent,
@@ -32,6 +32,10 @@ router.get('/:id', withAuth, (req, res) => {
   Event.findOne({
     attributes: ['created_at','event_type', 'note'],
     include: [
+      {
+        model: Baby,
+        attributes: ['baby_name']
+      },
 
       {
         model: Parent,
@@ -60,7 +64,10 @@ router.put('/', withAuth, (req, res) => {
   Event.findOne({
     attributes: ['created_at','event_type', 'note'],
     include: [
-
+      {
+        model: Baby,
+        attributes: ['baby_name']
+      },
       {
         model: Parent,
         attributes: ['username']
