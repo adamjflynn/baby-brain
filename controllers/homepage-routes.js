@@ -10,13 +10,14 @@ const {Baby,Event,Parent} = require('../Models')
 
 router.get('/',withAuth, async (req,res) => {
     Parent.findOne({where:{id:req.session.parent_id}},{
-        include: [ Baby,
-                   Event
+        include: [ 
+                  // Baby,
+                  //  Event
 
-        //   {
-        //     model: Baby,
-        //     include:[{model:Event}]
-        //   }
+          {
+            model: Event,
+            include:[{model:Baby}]
+          }
         ]   
       })
       .then( async (dbParentData) =>{
@@ -29,10 +30,18 @@ router.get('/',withAuth, async (req,res) => {
           const eventData = await Event.findAll({where:{parent_id:parent.id}})
           const events = eventData.map(e=>e.get({plain:true}))
           const parent_name = req.session.parent_name
+          const eventsData = events.map(event => {
+            baby.forEach(b => {
+              if (event.baby_id === b.id){
+                event.baby_name = b.baby_name
+              }
+            })
+            return event
+          })
           const parent_id = req.session.parent_id
 
           
-          parent.event = events
+         parent.event = eventsData
           console.log(parent)
           res.render("user",parent)
           // res.render(user, {parent: {key: valuePair}})
