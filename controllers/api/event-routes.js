@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Event, Baby, Parent } = require('../../models');
+const { Event, Baby, Parent } = require('../../Models');
 const withAuth = require('../../utils/auth');
 const sequelize = require('../../config/connection');
 

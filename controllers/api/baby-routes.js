@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Baby, Parent, Event } = require('../../models');
+const { Baby, Parent, Event } = require('../../Models');
 const withAuth = require('../../utils/auth');
 
 

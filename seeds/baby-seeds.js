@@ -1,4 +1,4 @@
-const { Baby } = require('../models');
+const { Baby } = require('../Models');
 
 const babyData = [
   {

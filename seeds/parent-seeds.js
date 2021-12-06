@@ -1,5 +1,5 @@
 
-const {Parent} = require('../models')
+const {Parent} = require('../Models')
 
 const parentData = [
   {
