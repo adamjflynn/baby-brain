@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
+    <title>BABY BRAIN</title>
+</head>
+
+
+<body class= "bg-gradient-to-b from-green-200 via-blue-200 to-red-200">
+    
+    <!-- header main title -->
+
+    <header>
+        <div class="pt-12 flex-row justify-space-between align-center container-fluid mx-auto">
+            <div class="flex-shrink-0 flex items-center">
+                <span class="m-auto text-5xl text-red-400 font-medium"><i class="fas fa-baby px-2" aria-hidden="true"></i>Baby Brain</span>
+            </div>
+      </header>
+
+    <!-- div for the main login box -->
+
+    <div class="min-h-screen md:max-h-screen text-gray-800 flex flex-col justify-center"> 
+        <div class="relative px-4 sm:max-w-xl sm:mx-auto text-center">
+        <span class="text-2xl">Login to your account</span>
+            <div class="mt-4 bg-gray-300 shadow-md rounded-lg">
+                <div class="h-2 bg-red-400 rounded-t-md"></div>
+                <div class="px-8 py-6 mb-20">
+                   <!-- form box element -->
+                    <form>
+                        <!-- email/username input -->
+                        <label class="block font-semibold text-left">Username</label>
+                        <input type="text" placeholder="Username" class="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md username">
+                        <!-- password input -->
+                        <label class="block font-semibold text-left">Password</label>
+                        <input type="password" placeholder="Password" class="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:ring-1 focus:ring-red-400 rounded-md password">
+                        <!-- login and create account buttons -->
+                        <div class="flex justify-around item-baseline">
+                            <button type="button" id="login" class="mt-4 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Login</button>
+                            <button type="button" id="create" class="mt-4 mr-2 bg-red-400 text-white py-2 px-6 rounded-md hover:bg-red-800">Create Account</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div> 
+    </div>
+    </body>  
+    <!-- script to link login function -->
+    <script src="../javascript/login.js"></script>     
+</html>
