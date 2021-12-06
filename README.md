@@ -1,4 +1,6 @@
 # Baby Brain
+
+![babybrain](https://user-images.githubusercontent.com/87862136/144787460-6641604c-e3d5-42fa-b708-89de6b634d1d.JPG)
   
   ## Description
 
@@ -30,7 +32,7 @@
 
   ## Link to the GitHub repository
 
-  [https://github.com/adamjflynn/baby-brain](https://github.com/https://github.com/adamjflynn/baby-brain/)
+  [GitHub](https://github.com/https://github.com/adamjflynn/baby-brain/)
 
   ## Link the deployed application on Heroku
-  [http://boiling-refuge-70605.herokuapp.com/](http://boiling-refuge-70605.herokuapp.com/)
+  [Heroku](http://boiling-refuge-70605.herokuapp.com/)
