@@ -19,8 +19,8 @@
                     <div class="h-screen mt-4 bg-gray-300 shadow-md rounded-lg">
                         <ol class="event-list">
                             {{#each event }}
-                            <li>
-                                {{created_at}} {{baby_name}} {{event_type}} {{note}}
+                            <li id='{{baby_id}}'>
+                                {{createdAt}} {{baby_name}} {{event_type}} {{note}}
                             </li>
                             {{/each}}
                         </ol>            

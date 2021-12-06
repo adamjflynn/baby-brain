@@ -8,11 +8,11 @@ const sequelize = require('../../config/connection');
 
 router.get('/', (req, res) => {
     Event.findAll({
-      attributes: ['createdAt','id','event_type', 'note','baby_id'],
+      attributes: ['createdAt','id','event_type', 'note','baby_id','baby_name'],
       include: [
         {
           model: Baby,
-          attributes: ['baby_name']
+          attributes: ['baby_name','id']
         },
         {
           model: Parent,
@@ -21,7 +21,10 @@ router.get('/', (req, res) => {
         }
       ]   
     })
-    .then(dbEventData => res.json(dbEventData))
+    .then(dbEventData =>{
+      console.log(dbEventData)
+       res.json(dbEventData)
+    })
     .catch(err => {
       console.log(err)
       res.status(500).json(err)
