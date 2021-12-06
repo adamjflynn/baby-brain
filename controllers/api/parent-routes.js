@@ -16,10 +16,10 @@ router.get('/', withAuth, (req, res) => {
         model: Baby,
         attributes: ['baby_name']
       },
-      {
+      /*{
         model: Event,
         attributes: ['note']
-      }
+      }*/
     ]
   })
     .then(dbParentData => res.json(dbParentData))
@@ -37,10 +37,10 @@ router.get('/:id', withAuth, (req, res) => {
         model: Baby,
         attributes: ['baby_name']
       },
-      {
+      /*{
         model: Event,
         attributes: ['note']
-      }
+      }*/
     ],
     where: {
       id: req.params.id
