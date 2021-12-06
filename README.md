@@ -33,4 +33,4 @@
   [https://github.com/adamjflynn/baby-brain](https://github.com/https://github.com/adamjflynn/baby-brain/)
 
   ## Link the deployed application on Heroku
-  [ ]()
+  [http://boiling-refuge-70605.herokuapp.com/](http://boiling-refuge-70605.herokuapp.com/)
